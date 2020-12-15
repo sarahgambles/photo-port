@@ -2,6 +2,9 @@ import React from 'react';
 import Nav from './components/Nav';
 import About from './components/About';
 import Gallery from "./components/Gallery";
+import ContactForm from "./components/Contact";
+
+const [contactSelected, setContactSelected] = useState(false);
 
 function App() {
   const [categories] = useState([
@@ -22,12 +25,18 @@ function App() {
         categories={categories}
         setCurrentCategory={setCurrentCateogry}
         currentCategory={currentCategory}
+        contactSelected={contactSelected}
+        setContactSelected={setContactSelected}
       ></Nav>
       <main>
-        <div>
-        <Gallery currentCategory={currentCategory}></Gallery>
-        <About></About>
-        </div>
+        {!contactSelected ? (
+          <>
+          <Gallery currentCategory={currentCategory}></Gallery>
+          <About></About>
+          </>
+        ) : (
+          <ContactForm></ContactForm>
+        )}
       </main>
     </div>
   );
