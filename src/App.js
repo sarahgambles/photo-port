@@ -11,7 +11,7 @@ function App() {
     },
     { name: 'portraits', description: 'Portraits of people in life' },
     { name: 'food', description: 'Delicious delicacies' },
-    { name: 'landscape' description: 'Fields, farmhouses, waterfalls, and the beauty of nature' },
+    { name: 'landscape', description: 'Fields, farmhouses, waterfalls, and the beauty of nature' },
   ]);
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
@@ -25,7 +25,7 @@ function App() {
       ></Nav>
       <main>
         <div>
-        <Gallery></Gallery>
+        <Gallery currentCategory={currentCategory}></Gallery>
         <About></About>
         </div>
       </main>
