@@ -5,6 +5,10 @@ function Modal({currentPhoto}) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    {isModalOpen && (
+        <Modal currentPhoto={currentPhoto} onClose={toggleModal} />
+    )}
+
     return (
         <div className="modalBackdrop">
             <div className="modalContainer">
@@ -13,7 +17,7 @@ function Modal({currentPhoto}) {
                 <p>
                     Photo Description
                 </p>
-                <button type="button">
+                <button onClick={onClose} type="button">
                     Close this modal
                 </button>
             </div>
@@ -23,7 +27,7 @@ function Modal({currentPhoto}) {
 
 const toggleModal = (image, i) => {
     setCurrentPhoto({...image, index: i})
-    setIsModalOpen(true);
+    setIsModalOpen(!isModalOpen);
 }
 
 export default Modal;
